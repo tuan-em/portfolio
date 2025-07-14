@@ -307,6 +307,7 @@ span:hover:after {
 	justify-self: center;
 	text-align: center;
 	line-height: 3vw;
+	overflow: auto;
 }
 
 .git {
@@ -410,25 +411,25 @@ span:hover:after {
 }
 
 .video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -50;
-  filter: invert(1);
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -50;
+	filter: invert(1);
 }
 
 .bg {
 	z-index: -50;
 	position: fixed;
 	height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  filter: invert(1);
+	width: 100vw;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	filter: grayscale(1);
 }
 
 .bg video {
