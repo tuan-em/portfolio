@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="shortcut icon" type="image" href="img/icon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+	
+body
+{
+	margin: 0;
+	background-image: url('img/potoforchids.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #0D0D0D;
+	z-index: -50;
+}
+
+.grid
+{
+	z-index: 1;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(19, 1fr);
+	padding: 2vw;
+	box-sizing: border-box;
+	gap: 1vw;
+	grid-template-rows: repeat(19, 1fr);
+}
+
+div.cursor img
+{
+	mix-blend-mode: difference;
+	position: absolute;
+	top: 1vw;
+	left: 1vw;
+	width: 30px;
+	height: 30px;
+	z-index: 100;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+}
+
+.logo:hover
+{
+	color: #F2F2F2;
+  filter: none;
+  	-webkit-filter: grayscale(0);
+  	-webkit-transform: scale(1.01);
+}
+
+.logo
+{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	font-family: 'Inter', sans-serif;
+	font-size: 5vw;
+	font-weight: 700;
+	align-self: center;
+	text-align: left;
+	justify-self: left;
+	color: #F5CC00;
+	text-decoration: none;
+	position: relative;
+	filter: gray;
+	  -webkit-filter: grayscale(1);
+	  -webkit-transition: all .4s ease-in-out;
+}
+
+.logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.logo:before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.logo:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.logo:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #F5CC00;
+  transition: transform .3s ease;
+  mix-blend-mode: difference;
+}
+
+.about
+{
+	grid-column-end: 20;
+	grid-column-start: 18;
+	grid-row-start: 18;
+	grid-row-end: 20;
+	justify-self: end;
+	align-self: center;
+	font-family: 'M PLUS 1 Code', monospace;
+	font-size: 1.8vw;
+	color: #F2F2F2;
+	text-decoration: none;
+}
+
+.contact
+{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 18;
+	grid-row-end: 20;
+	font-family: 'M PLUS 1 Code', monospace;
+	font-size: 1.8vw;
+	justify-self: start;
+	align-self: center;
+	color: #F2F2F2;
+	text-decoration: none;
+}
+
+.works
+{
+	grid-column-end: 20;
+	grid-column-start: 18;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	font-family: 'M PLUS 1 Code', monospace;
+	font-size: 1.8vw;
+	justify-self: end;
+	align-self: center;
+	color: #F5CC00;
+	text-decoration: none;
+}
+
+span {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+span:before, span:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: #F5CC00;
+  mix-blend-mode: difference;
+}
+
+span:before {
+  left: -2px;
+}
+span:after {
+  right: 2px;
+  background: #F5CC00;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:before {
+  background: #F5CC00;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}
+
+h1 {
+	font-family: 'Inter', sans-serif;
+	font-size: 4vw;
+	font-weight: 700;
+	color: #F5CC00;
+	text-align: left;
+}
+
+.bio {
+	grid-column-start: 2;
+	grid-column-end: 19;
+	grid-row-start: 3;
+	grid-row-end: 18;
+	font-family: 'M PLUS 1 Code', monospace;
+	font-size: 1vw;
+	font-weight: 400;
+	align-self: center;
+	justify-self: start;
+	text-align: justify;
+	color: #F2F2F2;
+	overflow: auto;
+	height: 100%;
+	display: block;
+}
+
+.bio a {
+	color: #F5CC00;
+	font-family: 'Libre Baskerville', serif;
+	font-style: italic;
+}
+.bio a:hover {
+	color: #0D0D0D;
+	background-color: #F5CC00;
+	font-weight: 700;
+}
+
+.bio a img {
+	box-shadow: 5px 5px 15px #F5CC00;
+}
+
+.bio a img:hover {
+	transform: scale(1.01);
+}
+
+.back {
+	text-decoration: none;
+	grid-column-start: 3;
+	grid-column-end: 18;
+	grid-row-start: 18;
+	grid-row-end: 20;
+	width: 6vw;
+	text-align: center;
+	align-self: center;
+	justify-self: center;
+	color: #D9D9D9;
+	border: solid 6px #D9D9D9;
+  font-size: 2vw;
+  font-family: 'M PLUS 1 Code', monospace;
+  font-weight: 700;
+  border-radius: 0.5vw;
+  margin: 0.4vw;
+}
+
+.back:hover {
+	border: solid 6px #F5CC00;
+  color: #F5CC00;
+}
+
+.bg {
+	z-index: -50;
+	position: fixed;
+	height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 50%;
+}
+
+.bg video {
+	position: absolute;
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1100px) {
+
+  .logo {
+    font-size: 8vw;
+  	grid-column-start: 1;
+		grid-column-end: 4;
+		grid-row-start: 1;
+		grid-row-end: 3;
+  }
+
+  .works {
+    font-size: 2.8vw;
+  }
+
+  .about {
+    font-size: 2.8vw;
+  }
+
+  .contact {
+    font-size: 2.8vw;
+  }
+
+  h1 {
+		font-size: 5vw;
+	}
+
+	.bio {
+		font-size: 1.4vw;
+	}
+
+	.bio iframe {
+		height: 65%;
+	}
+
+	.back {
+		width: 7vw;
+		font-size: 2.4vw;
+	}
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .logo {
+    font-size: 11vw;
+  	grid-column-start: 1;
+		grid-column-end: 5;
+		grid-row-start: 1;
+		grid-row-end: 3;
+  }
+
+  .works {
+    font-size: 3.8vw;
+  }
+
+  .about {
+    font-size: 3.8vw;
+  }
+
+  .contact {
+		font-size: 3.8vw;
+  }
+
+  h1 {	
+		font-size: 6vw;
+	}
+
+	.bio {
+		font-size: 2vw;
+	}
+
+	.bio img {
+		width: 100%;
+	}
+
+	.bio iframe {
+		height: 50%;
+	}
+
+	.bio video {
+		width: 100%;
+	}
+
+	.back {
+		width: 10vw;
+		font-size: 3.4vw;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .logo {
+    font-size: 11vw;
+  	grid-column-start: 1;
+		grid-column-end: 5;
+		grid-row-start: 1;
+		grid-row-end: 3;
+  }
+
+  .works {
+    font-size: 5vw;
+  }
+
+  .about {
+    font-size: 5vw;
+  }
+
+  .contact {
+  	font-size: 5vw;
+  }
+
+  h1 {
+  	font-size: 12vw;
+  }
+
+  .bio {
+  	grid-column-start: 1;
+  	grid-column-end: 20;
+  	font-size: 3vw;
+  }
+
+  .bio iframe {
+  	height: 35%;
+  }
+
+	.back {
+		font-size: 6vw;
+		width: 14vw;
+	}
+
+ }
+
+	</style>
+
+	<title>a pot of orchids / Tuan Em.</title>
+
+</head>
+
+<body>
+
+
+	<div class="bg">
+		<video autoplay muted loop>
+  		<source src="img/bg.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<div class="grid">
+		
+		<a href="index.html" class="logo"><img src="img/logo.png"></a>
+		
+		<a href="works.html" class="works">
+			<span>WORKS<span>
+		</a>
+		
+		<a href="about.html" class="about">
+			<span>ABOUT<span>
+		</a>
+		
+		<a href="contact.html" class="contact">
+			<span>CONTACT<span>
+		</a>
+
+		<div class="bio">
+
+			<h1>a pot of <b style="font-family:'Libre Baskerville', serif; font-style: italic; font-weight: 400;">orchids</b></h1>
+
+			<div style="text-align: right; justify-self: end;">
+			<b style="color: #0D0D0D; background: #F5CC00;">Year: 2025. Type: Concrete Poetry. Screen Printing.<br> Role: All Role.</b></div><br><br>
+			<a href="">a pot of orchids</a> is rooted in my intimate, personal connection with the exotic and delicate beauty of orchids in Vietnamese household. However, in Vietnamese society, associated with status, wealth, and luxury and are presented as gifts at significant events. Through this concrete poetry and ASCII art, I want to compel viewers to look beyond the surface, relearn and appreciate the orchid's original beauty.<br><br>
+
+			<div style="text-align: center; justify-self: center; display: block;">
+				<b style="font-family:'Libre Baskerville'; serif; font-style: italic; font-weight: 700; color:#F5CC00;">Outcomes</b>
+			</div><br>
+
+			<img src="img/orchids1.png" width="50%"><img src="img/orchids2.png" width="50%">
+			<img src="img/orchids3.png" width="50%"><img src="img/orchids4.png" width="50%">
+			<img src="img/orchids5.png" width="50%"><img src="img/orchids6.png" width="50%"><br><br>
+
+			<div style="text-align: center; justify-self: center; display: block;">
+				<b style="font-family:'Libre Baskerville'; serif; font-style: italic; font-weight: 700; color:#F5CC00;">Making Of</b>
+			</div><br>
+
+			<img src="img/concretepoetry1.png" width="50%"><img src="img/concretepoetry2.png" width="50%">
+			<img src="img/concretepoetry3.png" width="50%"><img src="img/concretepoetry4.png" width="50%">
+			<img src="img/concretepoetry5.png" width="50%"><img src="img/concretepoetry6.png" width="50%">
+			<img src="img/concretepoetry7.png" width="50%"><img src="img/concretepoetry8.png" width="50%">
+			<video width="50%" height="auto" autoplay loop muted controls><source src="img/concretepoetry9.mp4" type="video/mp4">Your browser does not support the video tag. :(</video><video width="50%" height="auto" autoplay loop muted controls><source src="img/concretepoetry10.mp4" type="video/mp4">Your browser does not support the video tag. :(</video><br><br>
+
+			<div style="text-align: center; justify-self: center; display: block;">© 2025 Tuan Em. All Rights Reserved.</div>
+			
+		</div>
+
+		<a href="works.html" class="back">BACK</a>
+
+		</div>
+		
+		<div class="cursor">
+    	<img src="img/cursor.png">
+		</div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="cursor.js"></script>
