@@ -224,14 +224,15 @@ img {
     pointer-events: none;
 }
 
-/*.gif {
+.gif {
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
+	pointer-events: auto;
 }
 
-.gif:hover {
+/*.gif:hover {
 	opacity: 1;
 }*/
 
@@ -340,6 +341,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  mix-blend-mode: screen;
+  background-color: #0D0D0D;
 }
 
 .bg video {
@@ -564,7 +567,7 @@ img {
 			<a href="works.html">
 			<div class="photo">
   			<img src="img/artwork.png">
-  			<!-- <img class="gif" src="img/artwork.gif"> -->
+  			<img class="gif" src="img/artwork.gif">
 			</div>
 			</a>
 		</div>
